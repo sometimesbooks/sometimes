@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섬타임즈 북스 | 따뜻하고 단단하고 선명한 책을 만듭니다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        /* 기본 폰트를 프리텐다드로 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+            word-break: keep-all;
+        }
+        /* 커스텀 스크롤바 디자인 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1ece4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c2b5a3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #78350f;
+        }
+    </style>
+</head>
+<body class="bg-[#faf8f5] text-stone-800 antialiased flex flex-col min-h-screen">
+
+    <!-- 1. 네비게이션 바 -->
+    <nav class="sticky top-0 z-40 bg-[#faf8f5]/90 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <span class="w-9 h-9 rounded-full bg-amber-900 text-amber-50 flex items-center justify-center font-bold text-base shadow-sm group-hover:scale-105 transition-transform">M</span>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-stone-900 group-hover:text-amber-900 transition-colors">모던북스</span>
+                    <span class="text-[10px] tracking-widest text-stone-500 uppercase">Modern Books</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-stone-600 text-sm">
+                <a href="#about" class="hover:text-amber-900 transition-colors py-1">출판사 소개</a>
+                <a href="#books" class="hover:text-amber-900 transition-colors py-1">도서 목록</a>
+                <a href="#news" class="hover:text-amber-900 transition-colors py-1">소식 & 공지</a>
+                <a href="#contact" class="hover:text-amber-900 transition-colors py-1">문의</a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden text-stone-700 p-2 focus:outline-none" aria-label="메뉴 열기">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        
+        <!-- 모바일 메뉴 -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-stone-200 bg-[#faf8f5] px-6 py-4 space-y-3 font-medium text-stone-600 text-sm">
+            <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">출판사 소개</a>
+            <a href="#books" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">도서 목록</a>
+            <a href="#news" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">소식 & 공지</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">문의</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- 2. 메인 히어로 섹션 (왼쪽 정렬) -->
+        <header class="py-20 md:py-28 px-6 max-w-6xl mx-auto text-left flex flex-col items-start">
+            <span class="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-amber-900 uppercase bg-amber-100/80 rounded-full">PUBLISHING HOUSE</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-tight mb-6 tracking-tight">
+                섬타임즈, <br class="hidden sm:inline">따뜻하고, 단단하고, 선명한 책을 만듭니다
+            </h1>
+            <p class="text-base md:text-lg lg:text-xl text-stone-600 leading-relaxed font-light mb-10 max-w-2xl">
+                사람은 누구나 하나의 섬입니다. 저마다의 계절과 파도를 품은 채 살아갑니다. 우리는 서로를 온전히 건널 수는 없지만, 이야기는 그 사이를 건너갑니다. 
+            </p>
+            <div class="flex flex-wrap justify-start gap-4 text-sm">
+                <a href="#books" class="px-7 py-3.5 bg-amber-900 text-amber-50 rounded-lg font-medium hover:bg-amber-950 transition-all shadow-sm">신간 둘러보기</a>
+                <a href="#news" class="px-7 py-3.5 bg-stone-200/80 text-stone-800 rounded-lg font-medium hover:bg-stone-300 transition-all">최근 소식 보기</a>
+            </div>
+        </header>
+
+        <!-- 3. 출판사 소개 섹션 (왼쪽 정렬) -->
+        <section id="about" class="py-24 bg-stone-100/70 border-y border-stone-200/80">
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- 타이틀 영역: 왼쪽 정렬 적용 -->
+                <div class="text-left mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 tracking-tight">출판사 소개</h2>
+                    <!-- 밑줄 선도 왼쪽으로 배치하기 위해 mx-auto 제거, mt-4 적용 -->
+                    <div class="w-12 h-1 bg-amber-800 mt-4"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-stone-700 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-stone-900 tracking-tight">
+                            "한 권의 책이 누군가의 삶에 작은 울림을 만들어낼 때,"
+                        </p>
+                        <p class="text-base md:text-lg font-light text-stone-600">
+                            섬타임즈는 2020년 설립 이후 인문, 에세이 분야에서 깊이 있는 도서들을 선사해왔습니다. 섬타임즈 sometimes는 때때로 머물고 싶은 섬처럼, 사람과 사람 사이를 잇는 이야기와 오래 남을 기록을 펴냅니다. 
+                        </p>
+                        <p class="text-base md:text-lg font-light text-stone-600">
+                            다정하고 따뜻하고 선명한, 삶의 온도가 느껴지는 에세이와 인문서 등 10권의 선명한 기록들을 발간해 왔습니다.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 md:p-10 rounded-2xl border border-stone-200 shadow-sm space-y-8">
+                        <div>
+                            <h3 class="text-lg font-bold text-stone-900 mb-2 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-800"></span> 우리가 책을 만드는 마음
+                            </h3>
+                            <p class="text-sm md:text-base text-stone-600 pl-3.5">선명한 시선, 단단한 이야기, 오래 남는 마음. 섬타임즈는 우리가 살아가는 삶을 조금 더 깊이 들여다보게 하는 책을 만듭니다.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-stone-900 mb-2 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-800"></span> 주요 출판 분야
+                            </h3>
+                            <p class="text-sm md:text-base text-stone-600 pl-3.5">인문 교양 · 에세이 · 문학</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 도서 라인업 섹션 -->
+        <section id="books" class="py-24 max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div class="text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 tracking-tight">도서 목록</h2>
+                    <p class="text-stone-600 mt-3 text-base">섬타임즈가 새롭게 선보이는 책들을 소개합니다.</p>
+                </div>
+                <!-- 카테고리 필터 -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0 text-sm">
+                    <button onclick="filterBooks('all')" class="book-filter-btn px-4 py-2 rounded-full bg-stone-900 text-white font-medium transition-colors">전체보기</button>
+                    <button onclick="filterBooks('essay')" class="book-filter-btn px-4 py-2 rounded-full bg-stone-200 text-stone-700 font-medium hover:bg-stone-300 transition-colors">인문</button>
+                    <button onclick="filterBooks('humanity')" class="book-filter-btn px-4 py-2 rounded-full bg-stone-200 text-stone-700 font-medium hover:bg-stone-300 transition-colors">에세이</button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 책 1 -->
+                <div class="book-card essay bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col">
+                    <div class="h-64 bg-stone-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" alt="고요한 밤의 묵상 표지" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-stone-900/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-md font-medium tracking-wide">인문</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-stone-900 mb-1 tracking-tight">더 사소한 것들의 인문학</h3>
+                        <p class="text-stone-500 text-xs mb-4 font-medium">조이엘 저 · 2026.07.06</p>
+                        <p class="text-stone-600 text-sm line-clamp-2 mb-6 font-light">불안한 시대를 건너는 100가지 통찰.</p>
+                        <button onclick="openModal(‘더 ‘사소한 것들의 인문학, ‘조이엘 저 · 2026.07.06 출간', '까마귀, AI, 로또, 견우직녀…. 너무 익숙해서 그냥 지나쳤던 것들에서 시작되는 인문학. 역사와 철학, 종교, 문학, 과학을 넘나들며 세상을 바라보는 새로운 기준을 제시한다. 작은 이야기 하나가 인간과 사회를 이해하는 열쇠가 되고, 당연하다고 믿었던 생각에 질문을 던지게 만든다.', 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80')" class="mt-auto w-full py-3 border border-stone-200 rounded-lg text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-300 transition-all">자세히 보기</button>
+                    </div>
+                </div>
+
+                <!-- 책 2 -->
+                <div class="book-card humanity bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col">
+                    <div class="h-64 bg-stone-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="철학자가 말하는 미래 표지" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-stone-900/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-md font-medium tracking-wide">에세이</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-stone-900 mb-1 tracking-tight">빛나는 시절을 지나는 중입니다</h3>
+                        <p class="text-stone-500 text-xs mb-4 font-medium">이애경 저 · 2026.03.13</p>
+                        <p class="text-stone-600 text-sm line-clamp-2 mb-6 font-light">오늘의 초점을 ‘지금 이 순간’에 맞출 것. 조용히 쌓인 하루가 모여, 빛나는 시절을 만들어 간다.</p>
+                        <button onclick="openModal('빛나는 ‘시절을 지나는 중입니다, '이애경 저 · 2026.03.13 출간', '달기만 한 인생은 없다. 쓰기만 한 인생도 없다. 인생은 아포가토. 서른 이후 더욱 선명해지는 감정과 삶의 변화를 담아낸 감성 에세이. 2013년 출간된 베스트셀러 『눈물을 그치는 타이밍』의 개정판으로, 상처와 회복의 시간을 지나온 이들에게 지금 또한 빛나는 시절임을 다정하게 전한다.', 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80')" class="mt-auto w-full py-3 border border-stone-200 rounded-lg text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-300 transition-all">자세히 보기</button>
+                    </div>
+                </div>
+
+                <!-- 책 3 -->
+                <div class="book-card essay bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col">
+                    <div class="h-64 bg-stone-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="계절이 지나가는 자리 표지" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-stone-900/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-md font-medium tracking-wide">에세이</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-stone-900 mb-1 tracking-tight">사소한 것들의 인문학</h3>
+                        <p class="text-stone-500 text-xs mb-4 font-medium">조이엘 저 · 2026.02.10</p>
+                        <p class="text-stone-600 text-sm line-clamp-2 mb-6 font-light">역사의 파편에서 현재를 읽다.</p>
+                        <button onclick="openModal(‘사소한 것들의 인문학, ‘조이엘 저 · 2024.05.30 출간', '퇴계 이황에서 21세기 윤선도까지 한 번 읽으면 멈출 수 없는 지식의 향연. 우리가 익히 알고 있지만 제대로 다뤄지지 않았던 역사 속 인물들의 이면을 들여다보며 오늘날의 현실적인 이야기를 아찔하고 통렬하게 엮어낸 164편의 이야기다. 소설보다 더 짜릿하고 재미있다는 서평단 찬사를 듣고 있다.', 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80')" class="mt-auto w-full py-3 border border-stone-200 rounded-lg text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-300 transition-all">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 출판사 뉴스 섹션 -->
+        <section id="news" class="py-24 bg-stone-100/70 border-t border-stone-200/80">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-left mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 tracking-tight">소식 & 공지</h2>
+                    <p class="text-stone-600 mt-3 text-base">모던북스의 최신 뉴스 및 이벤트 소식을 전합니다.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 뉴스 1 -->
+                    <div onclick="openModal('2026 가을 섬타임즈 도서전 참가 안내', '2026.09.24 · 공지사항', '섬타임즈가 10월 10일 남양주에서 열리는 여유당 북페어에 참가합니다. 한정판 굿즈 증정 이벤트가 준비되어 있습니다. 독자 여러분의 많은 관심 부탁드립니다.')" class="p-6 md:p-8 bg-white rounded-xl border border-stone-200 hover:border-amber-800/40 transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                        <div class="flex-grow">
+                            <span class="inline-block text-xs font-bold text-amber-800 bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-md mb-3">행사</span>
+                            <h3 class="text-lg md:text-xl font-bold text-stone-900 group-hover:text-amber-900 transition-colors tracking-tight">2026 가을 여유당 북페어 참가 안내</h3>
+                            <p class="text-stone-500 text-sm mt-2 line-clamp-1 font-light">부스 위치 및 작가 사인회 일정 안내드립니다.</p>
+                        </div>
+                        <span class="text-sm text-stone-400 font-medium whitespace-nowrap">2026.09.10</span>
+                    </div>
+
+                    <!-- 뉴스 2 -->
+                    <div onclick="openModal('섬타임즈 팝업 스토어 오픈', '2026.11.02-07 · 이벤트', ‘조이엘 저자의 신간 \’더 사소한 것들의 인문학\’ 출간을 기념하여 작은 북토크를 개최합니다. 저자와 직접 대화를 나누고 정갈한 차를 마시는 시간을 가집니다.\n\n- 일시: 2026년 11월 2일-7일 10-18시 \n- 장소: 아베크엘 북카페 2층’)” class="p-6 md:p-8 bg-white rounded-xl border border-stone-200 hover:border-amber-800/40 transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                        <div class="flex-grow">
+                            <span class="inline-block text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-md mb-3">이벤트</span>
+                            <h3 class="text-lg md:text-xl font-bold text-stone-900 group-hover:text-amber-900 transition-colors tracking-tight”>’섬타임즈 팝업 스토어 오픈</h3>
+                            <p class="text-stone-500 text-sm mt-2 line-clamp-1 font-light">작가 조이엘과 함께하는 따뜻한 차 한 잔의 시간.</p>
+                        </div>
+                        <span class="text-sm text-stone-400 font-medium whitespace-nowrap">2026.08.20</span>
+                    </div>
+
+                    <!-- 뉴스 3 -->
+                    <div onclick="openModal('2027 상반기 원고 투고 모집', '2026.07.01 · 공지사항', ‘섬타임즈에서 새로운 시선을 담은 원고를 모집합니다. 모집 분야는 에세이 및 인문 교양서입니다. 원고 기획안과 샘플 원고를 이메일(sometimesjeju@gmail.com)로 보내주시면 검토 후 연락드리겠습니다.')" class="p-6 md:p-8 bg-white rounded-xl border border-stone-200 hover:border-amber-800/40 transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                        <div class="flex-grow">
+                            <span class="inline-block text-xs font-bold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-md mb-3">모집</span>
+                            <h3 class="text-lg md:text-xl font-bold text-stone-900 group-hover:text-amber-900 transition-colors tracking-tight">2027 상반기 원고 투고 모집</h3>
+                            <p class="text-stone-500 text-sm mt-2 line-clamp-1 font-light">에세이 및 인문 교양 분야의 독창적인 원고를 기다립니다.</p>
+                        </div>
+                        <span class="text-sm text-stone-400 font-medium whitespace-nowrap">2026.07.01</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. 하단 푸터 / 연락처 섹션 -->
+    <footer id="contact" class="bg-stone-900 text-stone-300 py-16 md:py-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+            <div class="space-y-5">
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-stone-700 text-white flex items-center justify-center font-bold text-sm">M</span>
+                    <span class="text-2xl font-bold text-white tracking-tight">모던북스</span>
+                </div>
+                <p class="text-stone-400 text-sm leading-relaxed max-w-sm font-light">
+                    책으로 이어지는 좋은 인연을 기다립니다. 출판 문의, 도서 제휴, 원고 투고는 아래 메일로 연락 부탁드립니다.
+                </p>
+                <p class="text-sm text-stone-500 pt-4">© 2026 SOMETIMES Books. All rights reserved.</p>
+            </div>
+            
+            <div class="space-y-4 text-sm font-light">
+                <h3 class="font-bold text-white text-lg mb-3 tracking-tight">Contact Us</h3>
+                <p class="text-stone-400"><strong class="text-stone-200 font-medium">주소:</strong> 서울특별시 연서로 455, 536동 제 상가비 107</p>
+                <p class="text-stone-400"><strong class="text-stone-200 font-medium">이메일:</strong> sometimesjeju@gmail.com</p>
+                <p class="text-stone-400"><strong class="text-stone-200 font-medium">전화:</strong> 0506-547-0103</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 상세 보기 모달 (팝업창) -->
+    <div id="modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-900 p-2 text-2xl leading-none" aria-label="팝업 닫기">&times;</button>
+            
+            <div id="modalImageContainer" class="mb-6 rounded-xl overflow-hidden h-64 bg-stone-100 hidden">
+                <img id="modalImage" src="" class="w-full h-full object-cover" alt="도서 이미지">
+            </div>
+
+            <span id="modalSub" class="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md inline-block mb-3"></span>
+            <h3 id="modalTitle" class="text-2xl font-bold text-stone-900 mb-4 tracking-tight"></h3>
+            <div id="modalContent" class="text-stone-600 leading-relaxed space-y-3 text-sm md:text-base whitespace-pre-line border-t border-stone-100 pt-5 font-light"></div>
+
+            <div class="mt-8 pt-5 border-t border-stone-100 text-right">
+                <button onclick="closeModal()" class="px-6 py-2.5 bg-stone-900 text-white rounded-lg text-sm font-semibold hover:bg-stone-800 transition-colors">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script>
+        // 모바일 메뉴 토글
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 도서 카테고리 필터링
+        function filterBooks(category) {
+            const cards = document.querySelectorAll('.book-card');
+            const buttons = document.querySelectorAll('.book-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-stone-900', 'text-white');
+                btn.classList.add('bg-stone-200', 'text-stone-700');
+            });
+
+            if (event && event.target) {
+                event.target.classList.remove('bg-stone-200', 'text-stone-700');
+                event.target.classList.add('bg-stone-900', 'text-white');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 모달 팝업 열기
+        function openModal(title, sub, content, imgUrl = null) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalSub').innerText = sub;
+            document.getElementById('modalContent').innerText = content;
+
+            const imgContainer = document.getElementById('modalImageContainer');
+            const img = document.getElementById('modalImage');
+
+            if (imgUrl) {
+                img.src = imgUrl;
+                imgContainer.classList.remove('hidden');
+            } else {
+                imgContainer.classList.add('hidden');
+            }
+
+            const modal = document.getElementById('modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // 뒤 배경 스크롤 방지
+        }
+
+        // 모달 팝업 닫기
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // 뒤 배경 스크롤 복구
+        }
+
+        // 모달 외곽 클릭시 닫기
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
