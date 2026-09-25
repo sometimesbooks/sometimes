@@ -30,7 +30,7 @@
 </head>
 <body class="bg-[#faf8f5] text-stone-800 antialiased flex flex-col min-h-screen">
 
-    <!-- 1. 네비게이션 바 -->
+<!-- 1. 네비게이션 바 -->
     <nav class="sticky top-0 z-40 bg-[#faf8f5]/90 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
@@ -41,13 +41,49 @@
                 </div>
             </a>
             
-            <div class="hidden md:flex items-center gap-8 font-medium text-stone-600 text-sm">
+            <!-- PC용 메뉴 및 소셜 아이콘 -->
+            <div class="hidden md:flex items-center gap-6 font-medium text-stone-600 text-sm">
+                <!-- 기존 페이지 메뉴 -->
                 <a href="#about" class="hover:text-amber-900 transition-colors py-1">출판사 소개</a>
                 <a href="#books" class="hover:text-amber-900 transition-colors py-1">도서 목록</a>
                 <a href="#news" class="hover:text-amber-900 transition-colors py-1">소식 & 공지</a>
                 <a href="#contact" class="hover:text-amber-900 transition-colors py-1">문의</a>
+
+                <!-- 구분선 및 소셜 아이콘 -->
+                <div class="flex items-center gap-3 ml-2 pl-6 border-l border-stone-200">
+                    <!-- 인스타그램 -->
+                    <a href="https://instagram.com/sometimes.books" target="_blank" aria-label="Instagram" class="text-stone-500 hover:text-amber-900 transition-colors p-1" title="인스타그램">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <!-- 스레드 -->
+                    <a href="https://threads.net/@sometimes.books" target="_blank" aria-label="Threads" class="text-stone-500 hover:text-amber-900 transition-colors p-1" title="스레드">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.768 12.756c-.368 1.58-1.528 2.766-3.158 2.923-2.227.215-4.148-1.222-4.47-3.328-.352-2.3 1.258-4.437 3.555-4.66 1.488-.144 2.872.41 3.73 1.432l-1.24.962c-.527-.638-1.391-.973-2.288-.887-1.374.133-2.33 1.41-2.12 2.784.21 1.374 1.487 2.316 2.861 2.183.992-.096 1.764-.784 1.99-1.722h-2.628v-1.522h4.288c.03.22.046.444.046.671 0 .393-.058.783-.166 1.164z"/>
+                        </svg>
+                    </a>
+
+                    <!-- 네이버 블로그 -->
+                    <a href="https://blog.naver.com/sometimesbooks" target="_blank" aria-label="Naver Blog" class="text-stone-500 hover:text-[#03C75A] transition-colors p-1 font-bold text-xs flex items-center justify-center w-5 h-5 rounded bg-stone-200/60 hover:bg-emerald-50" title="네이버 블로그">
+                        N
+                    </a>
+
+                    <!-- 네이버 스마트스토어 -->
+                    <a href="https://smartstore.naver.com/sometimes.books" target="_blank" aria-label="Smartstore" class="text-stone-500 hover:text-amber-900 transition-colors p-1" title="스마트스토어">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
+            <!-- 모바일 메뉴 토글 버튼 -->
             <button onclick="toggleMobileMenu()" class="md:hidden text-stone-700 p-2 focus:outline-none" aria-label="메뉴 열기">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
@@ -59,6 +95,32 @@
             <a href="#books" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">도서 목록</a>
             <a href="#news" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">소식 & 공지</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block hover:text-amber-900 py-1">문의</a>
+            
+            <!-- 모바일용 소셜 아이콘 영역 -->
+            <div class="pt-3 mt-2 border-t border-stone-200/80 flex items-center gap-5 text-stone-500">
+                <a href="https://instagram.com/sometimes.books" target="_blank" aria-label="Instagram" class="hover:text-amber-900 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://threads.net/@sometimes.books" target="_blank" aria-label="Threads" class="hover:text-amber-900 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.768 12.756c-.368 1.58-1.528 2.766-3.158 2.923-2.227.215-4.148-1.222-4.47-3.328-.352-2.3 1.258-4.437 3.555-4.66 1.488-.144 2.872.41 3.73 1.432l-1.24.962c-.527-.638-1.391-.973-2.288-.887-1.374.133-2.33 1.41-2.12 2.784.21 1.374 1.487 2.316 2.861 2.183.992-.096 1.764-.784 1.99-1.722h-2.628v-1.522h4.288c.03.22.046.444.046.671 0 .393-.058.783-.166 1.164z"/>
+                    </svg>
+                </a>
+                <a href="https://blog.naver.com/sometimesbooks" target="_blank" aria-label="Naver Blog" class="hover:text-[#03C75A] transition-colors font-bold text-xs flex items-center justify-center w-5 h-5 rounded bg-stone-200/60">
+                    N
+                </a>
+                <a href="https://smartstore.naver.com/sometimes_books" target="_blank" aria-label="Smartstore" class="hover:text-amber-900 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </nav>
 
